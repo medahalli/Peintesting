@@ -1,0 +1,89 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+
+    link(rel='stylesheet' href='./styles.css')
+    link(rel='stylesheet' href='./nav.css')
+    link(rel='stylesheet' href='./cards-styles.css')
+    // Css Frameworks ( stylesheets & scripts )
+    link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
+    link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+    // End Css Frameworks
+    title Profile 
+  body
+    section
+      nav.navbar.fixed-top.navbar-expand-md.bg-white.justify-content-between
+        a.navbar-brand(href='/accueil')
+          i#logo.fa.fa-reddit(aria-hidden='true')
+          |  Shreddit
+        
+    br
+    br
+    br
+    header.header
+      .container
+        .row.bg-white.card-profile.rounded.p-3(style='margin-top:20px;')
+          .col-md-4.text-center.position-relative
+            // Image
+            a.user-img(href='#')
+              img.rounded-circle(src='https://picsum.photos/200/200' style='width:200px;height:200px' width='45')
+          .col-md-8.text-center
+            // Phone & Social
+            h2=username 
+              small (Member)
+            .button(style='padding-top:18px')
+              button.btn.btn-primary.rounded-pill(type='button')  Follow
+            .about-user(style='padding-top:18px')
+              p= "this profile has published "+ longueur+ " posts"
+              span.email(style='font-size:18px')
+                | E-mail : 
+                strong= email
+              br
+              br
+    section.container.p-3
+      .m-3.p-3.bg-white.rounded
+        h2 Some Posts
+        br
+        .gedf-main
+         each cat in liens
+              .card.gedf-card
+                .card-header
+                  .d-flex.justify-content-between.align-items-center
+                    .d-flex.justify-content-between.align-items-center
+                        .mr-2
+                          img.rounded-circle(src='https://picsum.photos/50/50' alt='' width='45')
+                        .ml-2
+                          .h5.m-0
+                            a(href='')= "@"+cat.id
+                          .h7.text-muted= cat.id
+                    div
+                
+                .card-body
+                    .text-muted.h7.mb-2
+                      i.fa.fa-clock-o=cat.day+"/"+cat.month+"/"+cat.year+" - "+cat.hours+":"+cat.min
+                    a.card-link(href='')
+                      h5.card-title= "Subject :"+ cat.title
+                    p.card-text=cat.content
+                .card-footer
+                    a.card-link.upvote(data-uid='')
+                      i.fa.fa-arrow-circle-up
+                      |  (
+                      span#up-23432= cat.upvote 
+                      | )
+                    a.card-link.downvote(data-id='')
+                      i.fa.fa-arrow-circle-down
+                      |  (
+                      span#down-23432= cat.downvote 
+                      | )
+                    a.card-link(href='')
+                      i.fa.fa-comment
+                      |  (
+                      span= cat.commentaire
+                      | ) Comments
+                    
+          br
+          
+   

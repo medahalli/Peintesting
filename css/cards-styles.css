@@ -1,0 +1,147 @@
+ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.cards_holder {
+    display: block;
+    float: left;
+    width: 33.33%;
+    padding: 0;
+    margin: 0;
+}
+  
+#div_that_follow_on_scroll{
+    position: absolute;
+    width: 100%;
+    top: 0px;
+}
+.elevate {
+    background: white;
+    height: 200px;
+    margin: 10px;
+    border-radius: 20px;
+    margin-bottom: 8%;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: all 0.5s;
+}
+.upvote,
+.downvote{
+    cursor: pointer;
+}
+.voted_succ{
+    color: rgba(255, 52, 52, 0.933);
+    
+    cursor: pointer;
+}
+.card-footer{
+    user-select: none;
+    -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+    -moz-user-select: none; /* mozilla browsers */
+    -khtml-user-select: none; /* webkit (konqueror) browsers */
+    -ms-user-select: none; 
+}
+.voted_succ:hover{
+    color: rgba(255, 0, 0, 0.803);
+}
+.elevate:hover {
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.25);
+    margin: 5px;
+}
+@media screen and (max-width: 550px) {
+    .elevate {
+        height: 100px;
+    }
+}
+
+/* *************** */
+
+/*----  Main Style  ----*/
+#cards_landscape_wrap-2{
+    text-align: center;
+  }
+
+  #cards_landscape_wrap-2 a{
+    text-decoration: none;
+    outline: none;
+  }
+  #cards_landscape_wrap-2 .card-flyer {
+    border-radius: 5px;
+  }
+  #cards_landscape_wrap-2 .card-flyer .image-box{
+    overflow: hidden;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.50);
+    border-radius: 5px;
+  }
+  #cards_landscape_wrap-2 .card-flyer .image-box img{
+
+    transition:all .9s ease; 
+    width: 100%;
+    height: 200px;
+  }
+  #cards_landscape_wrap-2 .card-flyer:hover .image-box img{
+    opacity: 0.7;
+    -webkit-transform:scale(1.15);
+    -moz-transform:scale(1.15);
+    -ms-transform:scale(1.15);
+    -o-transform:scale(1.15);
+    transform:scale(1.15);
+  }
+  #cards_landscape_wrap-2 .card-flyer .text-box{
+    text-align: center;
+  }
+  #cards_landscape_wrap-2 .card-flyer .text-box .text-container{
+    padding: 30px 18px;
+  }
+  #cards_landscape_wrap-2 .card-flyer{
+    background: #FFFFFF;
+    margin-top: 50px;
+    -webkit-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    -ms-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.40);
+  }
+  #cards_landscape_wrap-2 .card-flyer:hover{
+    background: #fff;
+    box-shadow: 0px 15px 26px rgba(0, 0, 0, 0.50);
+    -webkit-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    -ms-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+    margin-top: 50px;
+  }
+  #cards_landscape_wrap-2 .card-flyer .text-box p{
+    margin-top: 10px;
+    margin-bottom: 0px;
+    padding-bottom: 0px; 
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: #000000;
+  }
+  #cards_landscape_wrap-2 .card-flyer .text-box h6{
+    margin-top: 0px;
+    margin-bottom: 4px; 
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: 'Roboto Black', sans-serif;
+    letter-spacing: 1px;
+    color: #00acc1;
+}
+@media screen and (max-width: 720px) {
+
+    #cards_landscape_wrap-2 .container .row div:nth-child(3),
+    #cards_landscape_wrap-2 .container .row div:nth-child(4){
+        display: none;
+    }
+    .trending-feed{
+      margin: auto !important;
+      width: auto !important;
+    }
+
+}

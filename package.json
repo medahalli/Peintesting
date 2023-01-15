@@ -1,0 +1,31 @@
+{
+  "name": "blodit103",
+  "version": "1.0.0",
+  "description": "A reddit clone made with Jade/Pug,Html, Css ,javascript, NodeJs and MySQL.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "ahalli",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "connect-sqlite3": "^0.9.11",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "jade": "^1.11.0",
+    "node-pre-gyp": "^0.17.0",
+    "sqlite": "^4.0.22",
+    "sqlite3": "^5.0.2"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Soufyane-RAHHAL/Reddit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Soufyane-RAHHAL/Reddit/issues"
+  },
+  "homepage": "https://github.com/Soufyane-RAHHAL/Reddit#readme"
+}

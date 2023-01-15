@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+
+nav .drop-btn span{
+  float: right;
+  line-height: 50px;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+#logo {
+    font-size: 2rem;
+    transform: translateY(10%);
+    color: #FF5700;
+}
+.blockoflist{
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    background: #fcfcfc;
+    z-index: 9999990;
+    border-left: 1px solid #000000a3;
+    border-top: 1px solid #000000a3;
+    top: 62px;
+    right: 3%;
+    transform: rotate(45deg);
+}
+.box-shadow{
+  box-shadow: 0px 1px 9px black;
+}
+.wrapper{
+  position: absolute;
+  z-index: 999999;
+  top: 70px;
+  right: 1%;
+  width: 400px;
+  display: flex !important;
+  overflow: hidden;
+  border-radius: 5px;
+  background: #fcfcfc;
+}
+.cloff{
+    display: none;
+    opacity: 0;
+}
+.show{
+    display: block;
+    opacity: 1;
+}
+.wrapper ul{
+  width: 400px;
+  list-style: none;
+  padding: 10px;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  -o-transition: all .3s;
+  transition:all .3s;
+}
+.wrapper ul li{
+  line-height: 55px;
+}
+.wrapper ul li a{
+  position: relative;
+  color: #0d0d0e;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 0 10px;
+  display: flex;
+  border-radius: 8px;
+  align-items: center;
+  text-decoration: none;
+}
+.menu-bar{
+  margin: 0;
+}
+
+.wrapper ul li:hover a{
+    background: #a29d9d42;
+}
+ul li a .icon{
+  height: 40px;
+  width: 40px;
+  margin-right: 13px;
+  background: #2222222b;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  border-radius: 50%;
+}
+ul li a .icon span{
+  line-height: 40px;
+  font-size: 20px;
+  color: #0d0d0e;
+}
+.sign-up-class{
+  background: #ff5700cf;
+  margin-top: 5px;
+}
+.bg-silver{
+  background: #d7d7d7;
+}
+ul li a i{
+  position: absolute;
+  right: 10px;
+  font-size: 25px;
+  pointer-events: none;
+}
+.wrapper ul.setting-drop,
+.wrapper ul.help-drop{
+  display: none;
+}
+.wrapper .arrow{
+  padding-left: 10px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #0d0d0e;
+  cursor: pointer;
+}
+.wrapper .arrow span{
+  margin-right: 15px;
+}
+
+@media screen and (max-width: 550px) {
+
+    .blockoflist{
+      top: 73px;
+      right: 5%;
+    }
+    .wrapper{
+      top: 82px;
+      left: 50%;
+      transform: translate(-50%,0%);
+      width: 95%;
+    }
+    .wrapper ul{
+        width: 100%;
+        list-style: none;
+        padding: 10px;
+        transition: all 0.4s ease;
+      }
+}

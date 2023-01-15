@@ -1,0 +1,75 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet' href='./styles.css')
+    link(rel='stylesheet' href='./nav.css')
+    // Css Frameworks ( stylesheets & scripts )
+    link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
+    link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')
+    // End Css Frameworks
+    title Sign-up | Shreddit
+  body
+    section
+      nav.navbar.fixed-top.navbar-expand-md.bg-white.justify-content-between
+        a.navbar-brand(href='./signup')
+          i#logo.fa.fa-reddit(aria-hidden='true')
+          |  Shreddit
+       
+    br
+    br
+    br
+    .container.py-3
+      .row
+        .col-lg-7.mx-auto
+          .bg-white.rounded-lg.shadow-sm.p-3
+            h2.sign-up-header  Sign Up Form 
+            span.underlined
+            br
+            // form content
+            .tab-content
+              // info
+              #nav-tab-card.tab-pane.fade.show.active
+                // ***************WARNING*************
+                if !logged
+                    p.alert.alert-danger= errors 
+                // ***************WARNING************
+                form(role='form' method='POST' autocomplete='off' action="/signup")
+                  // CSRF TOKEN NECCESSARY
+                  input(type='hidden' value='CSRF TOKEN')
+                  .form-group
+                    label(for='username') Username - Pseudo
+                    .input-group
+                      .input-group-append
+                        span.input-group-text.text-muted
+                          i.fa.fa-user
+                      input.form-control(type='text' name='username' placeholder='exp :ninan290' required='')
+                  .form-group
+                    label(for='email') E-mail
+                    .input-group
+                      .input-group-append
+                        span.input-group-text.text-muted
+                          i.fa.fa-envelope-square
+                      input.form-control(type='text' name='email' placeholder='exp: example@gmail.com' required='')
+                  .form-group
+                    label(for='pass') Password
+                    .input-group
+                      .input-group-append
+                        span.input-group-text.text-muted
+                          i.fa.fa-key
+                      input.form-control(type='password' name='pass' placeholder='password' required='')
+                  .form-group
+                    label(for='cpass') Password
+                    .input-group
+                      .input-group-append
+                        span.input-group-text.text-muted
+                          i.fa.fa-key
+                      input.form-control(type='password' name='cpass' placeholder='Confirm' required='')
+                  p.text-muted
+                    | Already a member (
+                    a(href='./login') sign in
+                    | )
+                  button.subscribe.btn.btn-primary.btn-block.rounded-pill.shadow-sm(type="submit" value="add")  Confirm  

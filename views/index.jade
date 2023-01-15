@@ -1,0 +1,183 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    // General stylesheets
+    link(rel='stylesheet' href='./styles.css')
+    link(rel='stylesheet' href='./nav.css')
+    link(rel='stylesheet' href='./cards-styles.css')
+    // Css Frameworks ( stylesheets & scripts )
+    link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
+    link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+    // End Css Frameworks
+    title Shreddit
+  body#body
+    section
+      nav.navbar.fixed-top.navbar-expand-md.bg-white.justify-content-between
+        a(href='./accueil')
+          i#logo.fa.fa-reddit(aria-hidden='true')
+          |  Shreddit
+        a(href='./profile')
+          i#logo.fa.fa-user(aria-hidden='true')
+          |  Profile
+        a(href='./about')
+          i#logo.fa.fa-users(aria-hidden='true')
+          |  About us
+        a(href='./help')
+          i#logo.fa.fa-info(aria-hidden='true')
+          |  Help & support
+        a(href='./logout')
+          i#logo.fa.fa-sign-out(aria-hidden='true')
+          |  Log out
+        
+       
+    .blockoflist.cloff
+    .nav-holder.cloff
+      .wrapper.box-shadow
+        
+    br
+    br
+    br
+    .container
+      .row
+        .col
+        // Import trending post
+        .col-lg-12
+          h5
+            i.fa.fa-fire(aria-hidden='true')
+            |  Trending today
+          #cards_landscape_wrap-2
+            .container
+              .row
+                .trending-feed.col-sm-6.col-md-3.col-lg-3
+                  a(href='')
+                    .card-flyer
+                      .text-box
+                        .image-box
+                          img(src='https://cdn.pixabay.com/photo/2018/03/30/15/11/deer-3275594_960_720.jpg' alt='')
+                .trending-feed.col-sm-6.col-md-3.col-lg-3
+                  a(href='')
+                    .card-flyer
+                      .text-box
+                        .image-box
+                          img(src='https://cdn.pixabay.com/photo/2018/04/09/19/55/low-poly-3305284_960_720.jpg' alt='')
+                .trending-feed.col-sm-6.col-md-3.col-lg-3
+                  a(href='')
+                    .card-flyer
+                      .text-box
+                        .image-box
+                          img(src='https://cdn.pixabay.com/photo/2018/04/06/13/46/poly-3295856_960_720.png' alt='')
+                .trending-feed.col-sm-6.col-md-3.col-lg-3
+                  a(href='')
+                    .card-flyer
+                      .text-box
+                        .image-box
+                          img(src='https://cdn.pixabay.com/photo/2018/03/30/15/12/dog-3275593_960_720.jpg' alt='')
+          // end col
+        .col
+    br
+    .container
+      .row
+        .col-lg-8
+          h5
+            i.fa.fa-bolt(aria-hidden='true')
+            |  Trending Posts
+          br
+          // Import trending post / fetch by ajax infinte scroll
+          // *****************************************************************
+          .gedf-main
+            // - \\\\\\\Post
+           each cat in liens
+            .card.gedf-card
+              .card-header
+                .d-flex.justify-content-between.align-items-center
+                  .d-flex.justify-content-between.align-items-center
+                    .mr-2
+                      img.rounded-circle(src='https://picsum.photos/50/50' alt='' width='45')
+                    .ml-2
+                      .h5.m-0
+                        a(href='./post/'+cat.id)= "@"+cat.id
+                      .h7.text-muted= cat.id
+             
+              .card-body
+                .text-muted.h7.mb-2
+                  i.fa.fa-clock-o= cat.day+"/"+cat.month+"/"+cat.year+" - "+cat.hours+":"+cat.min
+                a.card-input(href='./post/'+cat.id )
+                  h5.card-title= "Subject :"+ cat.title
+                p.card-text=cat.content
+              .card-footer
+                a.card-input.upvote(href='./post/'+cat.id)
+                  i.fa.fa-arrow-circle-up
+                  |  (
+                  span#up-23432= cat.upvote
+                  | )
+                a.card-input.downvote(href='./post/'+cat.id)
+                  i.fa.fa-arrow-circle-down
+                  |  (
+                  span#down-23432= cat.downvote 
+                  | )
+                a.card-input(href='./post/'+cat.id )
+                  i.fa.fa-comment
+                  |  (
+                  span= cat.commentaire
+                  | ) Comments 
+                
+                    
+            br
+            br
+            // end col
+        .col-lg-4
+          #div_that_follow_on_scroll
+            .card.gedf-card
+              .card-body
+                h5.card-title Make a publication
+                #myTabContent.tab-content
+                  #posts.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='posts-tab')
+                    form(action="accueil" method ="POST")
+                      label.sr-only(for='message') post
+                      
+                      div.row
+                        div.col
+                          span.badge.rounded-pill.bg-primary
+                          div
+                            input(type='text' name="title" placeholder="subject" required='')
+                      div.row
+                        div.col
+                          span.badge.rounded-pill.bg-primary
+                          div
+                            textarea(type='text' name="content" placeholder="what are you thinking" required='')
+                      
+                      div.row
+                          span.badge.rounded-pill.bg-primary
+                          div.bg-light.p-2
+                            input(type="Submit" value="ajout")
+            br
+            h5
+              i.fa.fa-bolt(aria-hidden='true')
+              |  Recommended Accounts
+            .card.gedf-card
+              .card-header
+                .d-flex.justify-content-between.align-items-center
+                  .d-flex.justify-content-between.align-items-center
+                    .mr-2
+                      img.rounded-circle(src='https://picsum.photos/50/50' alt='' width='45')
+                    .ml-2
+                      .h5.m-0
+                        a(href='./post/srahhal') @Srahhal
+                  div
+                    button.btn.btn-info(type='submit') Follow
+              .card-header
+                .d-flex.justify-content-between.align-items-center
+                  .d-flex.justify-content-between.align-items-center
+                    .mr-2
+                      img.rounded-circle(src='https://picsum.photos/50/50' alt='' width='45')
+                    .ml-2
+                      .h5.m-0
+                        a(href='./post/hlouazri') @Hlouazri
+                  div
+                    button.btn.btn-info(type='submit') Follow
+          br
+          br
+          br
