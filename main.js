@@ -8,6 +8,7 @@ const session = require('express-session')
 const app = express()
 const bodyParser = require('body-parser');
 const path = require('path');
+const fs = require('fs');
 
 //const SQLiteStore = require('connect-sqlite3')(session);
 const port = 3000
@@ -167,12 +168,24 @@ app.post('/accueil',async(req,res)=>{
     res.redirect(302,'/login');
   }
 })
-const data = ["Louis", "Amani", "Paul"];
+
+
+
+let html;
+fs.readFile('about.html', 'utf8', (err, data) => {
+  if (err) throw err;
+  html = data;
+});
+
+
+
+
+const data = ["Great site"];
 /*app.get('/about',(req, res) => {
   //let htmlForm = '<h1>Laisser moi votre avis sur le site</h1> <form action = "/" method = "post">'+'<label for="nom">Nom';
   //let pathname=path.join(__dirname,'./about.html');
   let htmlForm =
-  '<h1>Bienvenu sur notre site</h1><form action="/" method="post"><label' +
+  '<h1>share with us your opinion</h1><form action="/" method="post"><label' +
   ' for="nom">Nom</label><br><textarea name="nom" id="" cols="30" rows="3">' +
   '</textarea><br><br><button type="submit">Enregistrer</button></form>';
   let htmlList = "";
@@ -184,13 +197,9 @@ const data = ["Louis", "Amani", "Paul"];
   //res.sendFile(pathname);
 })*/
 
-
-
-
-
-app.get("/about", (req, res) => {
+/*app.get("/about", (req, res) => {
   let htmlForm =
-    '<h1>Bienvenu sur notre site</h1><form action="/about" method="post"><label' +
+    '<h3>share with us your opinion</h3><form action="/about" method="post"><label' +
     ' for="nom">Nom</label><br><textarea name="nom" id="" cols="30" rows="3">' +
     '</textarea><br><br><button type="submit">Enregistrer</button></form>';
   let htmlList = "";
@@ -198,15 +207,38 @@ app.get("/about", (req, res) => {
     htmlList = htmlList + "<li>" + nom + "</li>";
   });
   htmlList = "<ul>" + htmlList + "</ul>";
-  res.send(htmlForm + htmlList);
+  res.sendFile(path.join(__dirname, "about.html"), (err) => {
+    if (err) {
+        res.status(500).send(err);
+    } else {
+        res.write(htmlForm + htmlList);
+        res.end();
+    }
+  });
+});*/
+
+
+
+app.get("/about", (req, res) => {
+
+  let htmlForm =
+    '<h3>share with us your opinion</h3><form action="/about" method="post"><label' +
+    ' for="nom">comments</label><br><textarea name="nom" id="" cols="30" rows="3">' +
+    '</textarea><br><br><button type="submit">Enregistrer</button></form>';
+  let htmlList = "";
+  data.forEach((nom) => {
+    htmlList = htmlList + "<li>" + nom + "</li>";
+  });
+  htmlList = "<ul>" + htmlList + "</ul>";
+  res.send(html+htmlForm + htmlList);
 });
 
 app.post("/about", (req, res) => {
   let inputData = new String(req.body.nom);
 
   let htmlForm =
-    '<h1>Bienvenu sur notre site</h1><form action="/about" method="post"><label' +
-    ' for="nom">Nom</label><br><textarea name="nom" id="" cols="30" rows="3">' +
+    '<h1>share with us your opinion</h1><form action="/about" method="post"><label' +
+    ' for="nom">Comments</label><br><textarea name="nom" id="" cols="30" rows="3">' +
     '</textarea><br><br><button type="submit">Enregistrer</button></form>';
 
     data.push(inputData);
@@ -216,7 +248,7 @@ app.post("/about", (req, res) => {
       htmlList = htmlList + "<li>" + nom + "</li>";
     });
     htmlList = "<ul>" + htmlList + "</ul>";
-    res.send(htmlForm + htmlList);
+    res.send(html+htmlForm + htmlList);
   
 });
 
